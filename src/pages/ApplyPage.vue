@@ -72,6 +72,13 @@ const columns = [
     field: "id",
   },
   {
+    name: "job",
+    label: "Trabajo",
+    field: "job_name",
+    align: "center",
+    sortable: false,
+  },
+  {
     name: "description",
     label: "Descripcion",
     field: "description",

@@ -7,6 +7,9 @@ export const useAuthStore = defineStore("auth", {
   }),
   getters: {
     isAuthenticated: (state) => state.user != null,
+    permissions(state) {
+      return state.user?.permissions || [];
+    },
   },
   actions: {
     async getAuthUser() {
@@ -45,7 +48,7 @@ export const useAuthStore = defineStore("auth", {
     },
     async logout() {
       await api.post("/logout").then((res) => {
-        this.$state.user = null;
+        this.user = null;
       });
     },
   },

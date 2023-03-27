@@ -20,6 +20,7 @@ const routes = [
     path: "/home",
     name: "home",
     meta: { requiresAuth: true },
+    redirect: { name: "inicio" },
     component: () => import("layouts/MainLayout.vue"),
     children: [
       {

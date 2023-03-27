@@ -8,18 +8,18 @@ export const useAuth = () => {
   const router = useRouter();
 
   const loginForm = reactive({
-    email: "admin@hotmail.com",
-    password: "12345678",
+    email: "admin@example.com",
+    password: "password",
   });
 
   const registerForm = reactive({
     name: "Usuario Test",
-    email: "test1@gmail.com",
+    email: "postulante2@gmail.com",
     documentNumber: "702539377",
     documentType: "dni",
     birthDate: "",
-    password: "12345678",
-    confirmPassword: "12345678",
+    password: "password",
+    confirmPassword: "password",
   });
 
   const loginWithCredentials = async () => {
@@ -33,7 +33,7 @@ export const useAuth = () => {
       console.log(error);
 
       Notify.create({
-        message: res.message,
+        message: error.response.data.message ?? "Error",
       });
     }
   };
@@ -56,7 +56,7 @@ export const useAuth = () => {
       console.log(error);
 
       Notify.create({
-        message: res.message,
+        message: error.response.data.message ?? "Error",
       });
     }
   };
@@ -66,10 +66,8 @@ export const useAuth = () => {
       .logout()
       .then(() => router.push({ name: "login" }))
       .catch((res) => {
-        console.log(res);
-
         Notify.create({
-          message: res.message,
+          message: error.response.data.message ?? "Error",
         });
       });
   };

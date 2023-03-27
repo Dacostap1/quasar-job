@@ -61,7 +61,7 @@
       </q-table>
     </div>
   </q-page>
-  <NewJob></NewJob>
+  <NewJob @reload-table="reloadTable"></NewJob>
 </template>
 
 <script setup>
@@ -76,12 +76,12 @@ const { rows, filter, loading, pagination, onRequest } = useTable();
 const jobStore = useJobStore();
 
 const columns = [
-  {
-    name: "id",
-    align: "center",
-    label: "ID",
-    field: "id",
-  },
+  // {
+  //   name: "id",
+  //   align: "center",
+  //   label: "ID",
+  //   field: "id",
+  // },
   {
     name: "title",
     label: "Titulo",
@@ -119,6 +119,13 @@ onMounted(() => {
     filter: "",
   });
 });
+
+const reloadTable = () => {
+  onRequest("/api/jobs", {
+    pagination: pagination.value,
+    filter: "",
+  });
+};
 
 // onMounted(async () => {
 //   await applyStore.getApplys();

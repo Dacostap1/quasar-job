@@ -1,8 +1,8 @@
 <template>
   <q-dialog v-model="applyStore.showDialogApply">
     <q-card style="width: 700px; max-width: 80vw" class="q-pa-md">
-      <div class="text-h6">
-        Postular al trabajo de {{ jobStore.jobSelected.title }}
+      <div class="text-h6 q-pa-sm">
+        Postular a {{ jobStore.jobSelected.title }}
       </div>
       <q-form @submit="createApply" @reset="onReset" class="q-gutter-md">
         <q-input

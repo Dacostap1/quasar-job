@@ -74,6 +74,8 @@ const jobStore = useJobStore();
 
 const router = useRouter();
 
+const emit = defineEmits(["reload-table"]);
+
 const createJob = async () => {
   console.log(title.value);
   console.log(description.value);
@@ -89,6 +91,8 @@ const createJob = async () => {
     if (res.status == 200) {
       setTimeout(() => {
         jobStore.$patch({ showDialogJob: false });
+        onReset();
+        emit("reload-table");
       }, 500);
     }
   } catch (error) {

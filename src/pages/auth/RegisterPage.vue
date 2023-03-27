@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center text-h4 q-pa-lg">Register</div>
+  <div class="text-center text-h4 q-pa-lg">Registro</div>
 
   <q-card-section>
     <q-form class="q-gutter-md">
